@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+
+      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="email"><br>
+          <input type="password" name="credentials[password]" placeholder="password"><br>
+          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in">
+        <legend>Sign in!</legend>
+        <input type="text" name="credentials[email]" placeholder="email"><br>
+        <input type="password" name="credentials[password]" placeholder="password"><br>
+        <input type="submit" name="submit" value="Sign in!">
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out!</legend>
+          <input type="submit" name="submit" value="Sign Out!">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="old password"><br>
+            <input type="password" name="passwords[new]" placeholder="new password">
+            <input type="submit" name="submit" value="Change password!">
+        </fieldset>
+      </form>
+      <h1>Example</h1>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.</p>
+    </body>
+</html>
