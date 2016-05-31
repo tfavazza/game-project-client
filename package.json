@@ -1,10 +1,11 @@
 {
-  "name": "ga-wdi-boston.api-token-auth",
+  "name": "tfavazza.game-project-client",
   "version": "0.0.2",
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "normalize.css": "^3.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
