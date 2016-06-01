@@ -3,7 +3,25 @@ let winArray = [null, null, null, null, null, null, null, null, null];
 let playerOne = false;
 let idOfButton = "#";
 let buttonNumber = '';
-/*
+
+const addTheButtonBack = function() {
+  document.getElementById('hide-modal-button').innerHTML = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Game Over!</button>';
+};
+
+const checkForWins = function(arr) {
+  console.log(arr);
+  if(arr[0] === arr[1] && arr[1] === arr[2]) {
+    if(arr[0] === "X") {
+      console.log("player 1 wins!"); //TODO remove console.logs
+      addTheButtonBack();
+    } else {
+      console.log("player 2 wins!"); //TODO remove console.logs
+      addTheButtonBack();
+    }
+  }
+    if(true){
+    }
+}; /*
 win conditions
 all the same:
 [0,1,2] n, n+1, n+2
@@ -16,6 +34,7 @@ all the same:
 [6,7,8] n, n+1, n+2
 */
 //final test to end the game
+
 
 const togglePlayer = function() {
   playerOne = !playerOne;
@@ -66,13 +85,11 @@ const checkGameState = function() {
     thisTurn = "O";
   }
   document.querySelector(idOfButton).innerHTML = thisTurn;
-  //TODO change text to X or O!
-  winArray[getButtonNumber(idOfButton)] = thisTurn;
-  //hard coded X
+    winArray[getButtonNumber(idOfButton)] = thisTurn;
+    checkForWins(winArray);
     if(!(winArray.includes(null))) {
     console.log("it's over! play again?");
-    document.getElementById('hide-modal-button').innerHTML = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Game Over!</button>';
-
+    addTheButtonBack();
     //TODO end game somehow and also be able to start it over
   }
 };

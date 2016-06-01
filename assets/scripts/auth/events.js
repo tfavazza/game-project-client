@@ -4,7 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
-const logic = require('./logic')
+const logic = require('./logic');
 
 const onSignUp = function (event) {
   event.preventDefault();
