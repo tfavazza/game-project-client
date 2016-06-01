@@ -1,6 +1,8 @@
 'use strict';
 let winArray = [null, null, null, null, null, null, null, null, null];
-//let winArray = ["x","x","o","x","o","x","o","o","x"]
+let playerOne = false;
+let idOfButton = "#";
+let buttonNumber = '';
 /*
 win conditions
 all the same:
@@ -14,17 +16,17 @@ all the same:
 [6,7,8] n, n+1, n+2
 */
 //final test to end the game
-let idOfButton = "#";
-let buttonNumber = '';
+
+const togglePlayer = function() {
+  playerOne = !playerOne;
+};
 
 const getButtonId = function(){
   idOfButton = "#";
   idOfButton += this.getAttribute('id');
-  console.log(idOfButton);
   return idOfButton;
 };
   const getButtonNumber = function (idOfButton) {
-    console.log("button id is " + idOfButton);
   switch(idOfButton) { //switch statement to change text to numbers
     case '#zero':
       buttonNumber = "0";
@@ -56,7 +58,6 @@ const getButtonId = function(){
   }
   return buttonNumber;
 };
-let playerOne = true;
 const checkGameState = function() {
   let thisTurn;
   if(playerOne) {
@@ -70,11 +71,12 @@ const checkGameState = function() {
   //hard coded X
     if(!(winArray.includes(null))) {
     console.log("it's over! play again?");
+    
     //TODO end game somehow and also be able to start it over
   }
 };
-
 module.exports = {
   checkGameState,
   getButtonId,
+  togglePlayer,
 };
