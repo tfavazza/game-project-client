@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
-$border: 1px solid #000;
+$plain-black: #000;
+$border: 5px solid $plain-black;
 $background-color: #fefefe;
 $font-color: #0f0f0f;
 $height: width;
@@ -11,6 +12,8 @@ body {
 }
 
 .col-xs-4 {
+  height: 33.3333vw;
+  padding-top: 5vw;
   text-align: center;
 }
 
@@ -28,4 +31,9 @@ body {
 
 .top {
   border-top: $border;
+}
+
+button {
+  height: 25vw;
+  width: 25vw;
 }
