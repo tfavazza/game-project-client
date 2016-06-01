@@ -71,7 +71,8 @@ const checkGameState = function() {
   //hard coded X
     if(!(winArray.includes(null))) {
     console.log("it's over! play again?");
-    
+    document.getElementById('hide-modal-button').innerHTML = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Game Over!</button>';
+
     //TODO end game somehow and also be able to start it over
   }
 };

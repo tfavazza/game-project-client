@@ -15,6 +15,11 @@ body {
   height: 33.3333vw;
   padding-top: 5vw;
   text-align: center;
+
+  button {
+    height: 25vw;
+    width: 25vw;
+  }
 }
 
 .left {
@@ -31,9 +36,4 @@ body {
 
 .top {
   border-top: $border;
-}
-
-button {
-  height: 25vw;
-  width: 25vw;
 }
