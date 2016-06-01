@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
+const logic = require('./logic')
 
 const onSignUp = function (event) {
   event.preventDefault();
@@ -40,6 +41,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePass);
+  $('#game-board').on('click', logic.checkGameState);
+  $('.col-xs-4').on('click', logic.getButtonId);
 };
 
 module.exports = {
