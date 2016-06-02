@@ -53,6 +53,7 @@ const addHandlers = () => {
   $('#game-board').on('click', logic.togglePlayer);
   $('.col-xs-4').on('click', logic.getButtonId);
   $('#start-game').on('click', onCreateGame);
+  $('#game-board').on();
 };
 
 module.exports = {

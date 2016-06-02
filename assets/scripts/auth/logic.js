@@ -5,11 +5,14 @@ let idOfButton = "#";
 let buttonNumber = '';
 
 const addTheButtonBack = function() {
-  document.getElementById('hide-modal-button').innerHTML = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Game Over!</button>';
+  $('#myModal').modal({
+        'data-toggle': 'modal',
+    });
 };
 
+
+
 const aWinHappened = function(piece1, piece2, piece3) {
-    console.log("were checking for wins!");
     let arr = winArray;
     let spot1 = arr[piece1];
     if (spot1 === null) {
