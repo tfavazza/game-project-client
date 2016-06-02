@@ -10,26 +10,22 @@ const endTheGame = function() {
     });
 };
 
-
-
 const aWinHappened = function(piece1, piece2, piece3) {
     let arr = winArray;
-    let spot1 = arr[piece1];
-    if (spot1 === null) {
+    if (arr[piece1] === null) {
       return false;
     }
-    var spot2 = arr[piece2];
-    if (spot1 !== spot2) {
+    if (arr[piece1] !== arr[piece2]) {
       return false;
     }
-    var spot3 = arr[piece3];
-    if (spot1 !== spot3) {
+    if (arr[piece1] !== arr[piece3]) {
       return false;
     }
-      console.log("Player " + spot1 + " wins!");
+      console.log("Player " + piece1 + " wins!");
       endTheGame();
     return true;
   };
+
   const checkForWins = function(arr) {
     console.log(arr);
     aWinHappened(0, 1, 2);
@@ -97,7 +93,6 @@ const checkGameState = function() {
     winArray[getButtonNumber(idOfButton)] = thisTurn;
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
-    console.log("it's over! play again?");
     endTheGame();
     //TODO end game somehow and also be able to start it over
   }
