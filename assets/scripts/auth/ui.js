@@ -19,9 +19,15 @@ const signOutSuccess = function () {
   console.log(app);
 };
 
+const newGameSuccess = (data) => {
+  app.game = data.game;
+  console.log(app);
+};
+
 module.exports = {
   failure,
   success,
   signInSuccess,
   signOutSuccess,
+  newGameSuccess,
 };

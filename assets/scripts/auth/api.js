@@ -72,6 +72,17 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
   });
 };
 
+const updateGame = function(data) {
+  return $.ajax({
+    url: app.host + '/games/' + app.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
+
 // const watchGameById = function(id) { //watchGameById GET	/games/:id/watch	games#watch
 //   return $.ajax({
 //     url: app.host + 'games/:' + id + '/watch',
@@ -89,5 +100,6 @@ module.exports = {
   showGames,
   createGame,
   getGameById,
+  updateGame,
   //watchGameById,
 };

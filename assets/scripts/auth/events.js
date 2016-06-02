@@ -36,10 +36,21 @@ const onChangePass = function (event) {
   .fail(ui.failure);
 };
 const onCreateGame = function () {
-  console.log("it did the thing!"); //TODO remove this
+  console.log("game created!!"); //TODO remove this
   event.preventDefault();
   api.createGame()
   .done(ui.success)
+  .fail(ui.failure);
+};
+
+let fakeData = '{ "game": { "cell": { "index": 0, "value": "x" } } }';
+
+const onUpdateGame = function (event) {
+  console.log("game is trying to update!");
+  event.preventDefault();
+  let data = fakeData;
+  api.updateGame(data)
+  .done(ui.newGameSuccess)
   .fail(ui.failure);
 };
 
@@ -53,6 +64,7 @@ const addHandlers = () => {
   $('#game-board').on('click', logic.togglePlayer);
   $('.col-xs-4').on('click', logic.getButtonId);
   $('#start-game').on('click', onCreateGame);
+  $('#game-board').on('click', onUpdateGame);
 };
 
 module.exports = {
