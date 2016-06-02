@@ -19,10 +19,10 @@ const signIn = function (data) {
     });
 };
 
-const signOut = function() {
+const signOut = function () {
   return $.ajax(
     {
-      url: app.host +'/sign-out/:' + app.user.id,
+      url: app.host + '/sign-out/:' + app.user.id,
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + app.user.token,
@@ -37,7 +37,7 @@ const changePass = function (data) {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data
+    data: data,
   });
 };
 
@@ -53,11 +53,12 @@ const showGames = function() { //showGames GET	/games	games#index
 
 const createGame = function() { //createGame POST	/games	games#create
   return $.ajax({
-    url: app.host + 'games',
-    method: 'GET',
+    url: app.host + '/games/',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
+    data: {}
   });
 };
 
@@ -71,14 +72,13 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
   });
 };
 
-// const watchGameById = function(id) {
+// const watchGameById = function(id) { //watchGameById GET	/games/:id/watch	games#watch
 //   return $.ajax({
 //     url: app.host + 'games/:' + id + '/watch',
 //     method: 'GET',
 //   });
 // };
 
-//watchGameById GET	/games/:id/watch	games#watch
 
 
 module.exports = {

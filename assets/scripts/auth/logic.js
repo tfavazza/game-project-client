@@ -1,6 +1,6 @@
 'use strict';
 let winArray = [null, null, null, null, null, null, null, null, null];
-let playerOne = false;
+let player_x = false;
 let idOfButton = "#";
 let buttonNumber = '';
 
@@ -8,7 +8,7 @@ const addTheButtonBack = function() {
   document.getElementById('hide-modal-button').innerHTML = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Game Over!</button>';
 };
 
-const checkForWins = function(arr) {
+const checkForWins = function(arr) { //FIXME only one win state right now
   console.log(arr);
   if(arr[0] === arr[1] && arr[1] === arr[2]) {
     if(arr[0] === "X") {
@@ -19,8 +19,6 @@ const checkForWins = function(arr) {
       addTheButtonBack();
     }
   }
-    if(true){
-    }
 }; /*
 win conditions
 all the same:
@@ -37,7 +35,7 @@ all the same:
 
 
 const togglePlayer = function() {
-  playerOne = !playerOne;
+  player_x = !player_x;
 };
 
 const getButtonId = function(){
@@ -79,7 +77,7 @@ const getButtonId = function(){
 };
 const checkGameState = function() {
   let thisTurn;
-  if(playerOne) {
+  if(player_x) {
       thisTurn = "X";
   } else {
     thisTurn = "O";

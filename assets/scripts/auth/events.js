@@ -35,6 +35,14 @@ const onChangePass = function (event) {
   .done(ui.success)
   .fail(ui.failure);
 };
+const onCreateGame = function () {
+  console.log("it did the thing!"); //TODO remove this
+  event.preventDefault();
+  api.createGame()
+  .done(ui.success)
+  .fail(ui.failure);
+};
+
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -44,6 +52,7 @@ const addHandlers = () => {
   $('#game-board').on('click', logic.checkGameState);
   $('#game-board').on('click', logic.togglePlayer);
   $('.col-xs-4').on('click', logic.getButtonId);
+  $('#start-game').on('click', onCreateGame);
 };
 
 module.exports = {
