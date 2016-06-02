@@ -4,7 +4,7 @@ let player_x = false;
 let idOfButton = "#";
 let buttonNumber = '';
 
-const addTheButtonBack = function() {
+const endTheGame = function() {
   $('#myModal').modal({
         'data-toggle': 'modal',
     });
@@ -27,7 +27,7 @@ const aWinHappened = function(piece1, piece2, piece3) {
       return false;
     }
       console.log("Player " + spot1 + " wins!");
-      addTheButtonBack();
+      endTheGame();
     return true;
   };
   const checkForWins = function(arr) {
@@ -98,7 +98,7 @@ const checkGameState = function() {
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
     console.log("it's over! play again?");
-    addTheButtonBack();
+    endTheGame();
     //TODO end game somehow and also be able to start it over
   }
 };
