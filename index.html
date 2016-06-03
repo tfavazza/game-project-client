@@ -7,27 +7,107 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="email"><br>
-          <input type="password" name="credentials[password]" placeholder="password"><br>
-          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password"><br>
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
+      <div class="container">
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Sign In/Register</button>
 
-      <form id="sign-in">
-        <legend>Sign in!</legend>
-        <input type="text" name="credentials[email]" placeholder="email"><br>
-        <input type="password" name="credentials[password]" placeholder="password"><br>
-        <input type="submit" name="submit" value="Sign in!">
-      </form>
+<!--Start of modal login form-->
+  <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+              <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal" id="sign-in">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Email:</label>
+              <div class="controls">
+                <input id="userid" name="credentials[email]" type="text" class="form-control" placeholder="Email@email.com" class="input-medium" required="">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Password:</label>
+              <div class="controls">
+                <input required="" id="passwordinput" name="credentials[password]" class="form-control" type="password" placeholder="********" class="input-medium">
+              </div>
+            </div>
+
+
+            <!-- Button -->
+            <div class="control-group">
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal" id="sign-up">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="Email">Email:</label>
+              <div class="controls">
+                <input id="Email" name="credentials[email]" class="form-control input-large" type="text" placeholder="Email@email.com" required="">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="password">Password:</label>
+              <div class="controls">
+                <input id="password" name="credentials[password]" class="form-control input-large" type="password" placeholder="********" required="">
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+              <div class="controls">
+                <input id="reenterpassword" class="form-control input-large" name="credentials[password_confirmation]" type="password" placeholder="********" required="">
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+      </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+      <center>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+ <!-- Start of old version of signup/in -->
       <form id="sign-out">
         <fieldset>
           <legend>Sign out!</legend>
           <div id="show-user"></div>
-          <input type="submit" name="submit" value="Sign Out!">
+          <button button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button>
         </fieldset>
       </form>
       <form id="change-password">
@@ -35,11 +115,12 @@
           <legend>Change Password!</legend>
             <input type="password" name="passwords[old]" placeholder="old password"><br>
             <input type="password" name="passwords[new]" placeholder="new password">
-            <input type="submit" name="submit" value="Change password!">
+            <button class="btn btn-primary btn-lg">Change Password</button>
         </fieldset>
       </form>
 
       <h1>Tic-Tac-Toe | By: Tara!</h1>
+<!---Game board--->
       <div id="start-game"><button>Start New Game!</button></div>
 
       <div id="hide-modal-button"></div>
