@@ -1,8 +1,9 @@
 'use strict';
 let winArray = [null, null, null, null, null, null, null, null, null];
-let player_x = false;
+let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
+let gameOver = false;
 
 const endTheGame = function() {
   $('#myModal').modal({
@@ -23,11 +24,12 @@ const aWinHappened = function(piece1, piece2, piece3) {
     }
       console.log("Player " + piece1 + " wins!");
       endTheGame();
+      gameOver = true;
     return true;
   };
 
-  const checkForWins = function(arr) {
-    console.log(arr);
+  const checkForWins = function() {
+    //console.log(arr);
     aWinHappened(0, 1, 2);
     aWinHappened(0, 3, 6);
     aWinHappened(0, 4, 8);
@@ -37,6 +39,23 @@ const aWinHappened = function(piece1, piece2, piece3) {
     aWinHappened(3, 4, 5);
     aWinHappened(6, 7, 8);
   };
+
+const makeGameData = function(theButtonNumber, thisTurn) {
+   let JSONified = {
+             "game": {
+               "cell": {
+                   "index": theButtonNumber,
+                   "value": thisTurn,
+           },
+           "over": gameOver,
+         }
+       };
+       return JSONified;
+};
+
+
+
+
 
   //final test to end the game
 
@@ -82,23 +101,36 @@ const getButtonId = function(){
   }
   return buttonNumber;
 };
+
 const checkGameState = function() {
   let thisTurn;
+  let gameJSON = {};
+  let theButtonNumber = getButtonNumber(idOfButton);
   if(player_x) {
       thisTurn = "X";
   } else {
     thisTurn = "O";
   }
-  document.querySelector(idOfButton).innerHTML = thisTurn;
-    winArray[getButtonNumber(idOfButton)] = thisTurn;
+  document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway
+    winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
     endTheGame();
     //TODO end game somehow and also be able to start it over
   }
+   gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
+   console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON)); //TODO: remove
+   return gameJSON;
 };
+
+
+
+
 module.exports = {
   checkGameState,
+  checkForWins,
+  getButtonNumber,
   getButtonId,
   togglePlayer,
+  winArray,
 };

@@ -6,6 +6,7 @@ const api = require('./api');
 const ui = require('./ui');
 const logic = require('./logic');
 
+
 const onSignUp = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -36,21 +37,21 @@ const onChangePass = function (event) {
   .fail(ui.failure);
 };
 const onCreateGame = function () {
-  console.log("game created!!"); //TODO remove this
   event.preventDefault();
   api.createGame()
-  .done(ui.success)
+  .done(ui.newGameSuccess)
   .fail(ui.failure);
 };
 
-let fakeData = '{ "game": { "cell": { "index": 0, "value": "x" } } }';
+
+
 
 const onUpdateGame = function (event) {
   console.log("game is trying to update!");
   event.preventDefault();
-  let data = fakeData;
+  let data = logic.checkGameState();
   api.updateGame(data)
-  .done(ui.newGameSuccess)
+  .done(ui.updateGameSuccess)
   .fail(ui.failure);
 };
 
@@ -60,7 +61,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePass);
-  $('#game-board').on('click', logic.checkGameState);
   $('#game-board').on('click', logic.togglePlayer);
   $('.col-xs-4').on('click', logic.getButtonId);
   $('#start-game').on('click', onCreateGame);

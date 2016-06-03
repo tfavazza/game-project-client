@@ -24,10 +24,16 @@ const newGameSuccess = (data) => {
   console.log(app);
 };
 
+const updateGameSuccess = (data) => {
+  app.game = data.game;
+  console.log(app);
+};
+
 module.exports = {
   failure,
   success,
   signInSuccess,
   signOutSuccess,
   newGameSuccess,
+  updateGameSuccess,
 };

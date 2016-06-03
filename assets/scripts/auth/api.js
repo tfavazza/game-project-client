@@ -1,6 +1,7 @@
 'use strict';
 const app = require('../app.js');
 
+
 const signUp = function (data) {
   return $.ajax(
      {
@@ -58,7 +59,6 @@ const createGame = function() { //createGame POST	/games	games#create
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: {}
   });
 };
 
@@ -72,14 +72,15 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
   });
 };
 
-const updateGame = function(data) {
+
+const updateGame = function (data) {
   return $.ajax({
     url: app.host + '/games/' + app.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data,
+    data: data, 
   });
 };
 
