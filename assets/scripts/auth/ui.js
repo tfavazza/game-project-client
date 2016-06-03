@@ -12,6 +12,7 @@ const failure = (error) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  $('#myModal').modal('hide');
   console.log(app);
 };
 const signOutSuccess = function () {

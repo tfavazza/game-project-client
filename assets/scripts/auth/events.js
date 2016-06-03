@@ -65,7 +65,8 @@ const addHandlers = () => {
   $('.col-xs-4').on('click', logic.getButtonId);
   $('#start-game').on('click', onCreateGame);
   $('#game-board').on('click', onUpdateGame);
-  $('#start-game').on('click', logic.toggleGameBoard)
+  $('#start-game').on('click', logic.toggleGameBoard);
+  $('#start-new-game').on('click', logic.toggleGameBoard);
 };
 
 module.exports = {

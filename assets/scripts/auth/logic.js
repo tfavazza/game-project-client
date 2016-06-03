@@ -11,7 +11,7 @@ const toggleGameBoard = function () {
 
 const endTheGame = function() {
   toggleGameBoard();
-  $('#myModal').modal({
+  $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
 };
@@ -57,9 +57,6 @@ const makeGameData = function(theButtonNumber, thisTurn) {
        };
        return JSONified;
 };
-
-
-
 
 
   //final test to end the game
@@ -116,7 +113,7 @@ const checkGameState = function() {
   } else {
     thisTurn = "O";
   }
-  document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway
+  document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway so resets can happen
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
@@ -124,7 +121,6 @@ const checkGameState = function() {
     //TODO end game somehow and also be able to start it over
   }
    gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
-   //console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON)); //TODO: remove
    return gameJSON;
 };
 
