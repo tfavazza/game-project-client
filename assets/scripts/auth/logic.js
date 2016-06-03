@@ -108,22 +108,25 @@ const checkGameState = function() {
   let thisTurn;
   let gameJSON = {};
   let theButtonNumber = getButtonNumber(idOfButton);
-  //let buttonEraser = "button-" + idOfButton;
   //console.log("Button eraser is labeled " + buttonEraser);
   if(player_x) {
       thisTurn = "X";
   } else {
     thisTurn = "O";
   }
-  $(idOfButton).text(thisTurn);
-  //document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway so resets can happen
+  //this bit switches the game board AND updates the array
+  if(!(winArray[theButtonNumber])){
+    $(idOfButton).text(thisTurn);
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
+    gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
+}
+
+//this bit checks for a tie
     if(!(winArray.includes(null))) {
     endTheGame();
     //TODO end game somehow and also be able to start it over
   }
-   gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
    return gameJSON;
 };
 
