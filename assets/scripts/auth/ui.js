@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('../app.js');
-const logic = require('./logic.js');
 
 const success = (data) => {
   console.log(data);
