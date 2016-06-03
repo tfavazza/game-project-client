@@ -3,6 +3,7 @@ let winArray = [null, null, null, null, null, null, null, null, null];
 let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
+//let gameJSON = {};
 
 const endTheGame = function() {
   $('#myModal').modal({
@@ -37,6 +38,23 @@ const aWinHappened = function(piece1, piece2, piece3) {
     aWinHappened(3, 4, 5);
     aWinHappened(6, 7, 8);
   };
+
+const makeGameData = function(theButtonNumber, thisTurn, winArray) {
+   let JSONified = {
+             "game": {
+               "cell": {
+                   "index": theButtonNumber,
+                   "value": thisTurn,
+           },
+           "over": checkForWins(winArray),
+         }
+       };
+       return JSONified;
+};
+
+
+
+
 
   //final test to end the game
 
@@ -85,19 +103,26 @@ const getButtonId = function(){
 
 const checkGameState = function() {
   let thisTurn;
+  let gameJSON = {};
+  let theButtonNumber = getButtonNumber(idOfButton);
   if(player_x) {
       thisTurn = "X";
   } else {
     thisTurn = "O";
   }
-  document.querySelector(idOfButton).innerHTML = thisTurn;
-    winArray[getButtonNumber(idOfButton)] = thisTurn;
+  document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway
+    winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
     endTheGame();
     //TODO end game somehow and also be able to start it over
   }
+   gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
+   console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON));
+   return gameJSON;
 };
+
+
 
 
 module.exports = {

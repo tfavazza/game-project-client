@@ -71,24 +71,26 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
     },
   });
 };
-let gameJSON = {
-           "game": {
-             "cell": {
-                 "index": 1,
-                 "value": "X",
-         },
-         "over": false,
-       }
-     };
 
-const updateGame = function () {
+//fake JSON to test updateGame with
+// let gameJSON = {
+//            "game": {
+//              "cell": {
+//                  "index": 1,
+//                  "value": "X",
+//          },
+//          "over": false,
+//        }
+//      };
+
+const updateGame = function (data) {
   return $.ajax({
     url: app.host + '/games/' + app.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: gameJSON, //FIXME
+    data: data, //FIXME
   });
 };
 

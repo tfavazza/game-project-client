@@ -50,9 +50,9 @@ const onCreateGame = function () {
 const onUpdateGame = function (event) {
   console.log("game is trying to update!");
   event.preventDefault();
-  //let data = gameJSON; //FIXME data should be getFormFields(infoNeeded)
-  api.updateGame()
-  .done(ui.newGameSuccess)
+  let data = logic.checkGameState(); //FIXME data should be getFormFields(infoNeeded)
+  api.updateGame(data)
+  .done(ui.updateGameSuccess)
   .fail(ui.failure);
 };
 
