@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 const logic = require('./logic');
+const jsongenerator = require('./jsongenerator');
 
 const onSignUp = function (event) {
   event.preventDefault();
@@ -42,27 +43,15 @@ const onCreateGame = function () {
   .fail(ui.failure);
 };
 
-// const makeGameData = function (index, value, over) {
-// let gameData = {
-//   game: {
-//     cell: {
-//       index: index,
-//       value: value
-//     },
-//     over: over
-//   }
-// };
-//   console.log(gameData);
-//   return gameData;
-// };
 
-//let fakeData = JSON.stringify(makeGameData("1","X", false));
+
+
 
 
 const onUpdateGame = function (event) {
   console.log("game is trying to update!");
   event.preventDefault();
-  let data = data; //FIXME data should be getFormFields(infoNeeded)
+  let data = jsongenerator.gameJSON; //FIXME data should be getFormFields(infoNeeded)
   api.updateGame(data)
   .done(ui.newGameSuccess)
   .fail(ui.failure);
@@ -77,6 +66,7 @@ const addHandlers = () => {
   $('#game-board').on('click', logic.checkGameState);
   $('#game-board').on('click', logic.togglePlayer);
   $('.col-xs-4').on('click', logic.getButtonId);
+  $('.col-xs-4').on('click', jsongenerator.makeGameData);
   $('#start-game').on('click', onCreateGame);
   $('#game-board').on('click', onUpdateGame);
 };

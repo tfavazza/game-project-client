@@ -1,6 +1,6 @@
 'use strict';
-let winArray = [null, "X", null, null, null, null, null, null, null];
-let player_x = false;
+let winArray = [null, null, null, null, null, null, null, null, null];
+let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
 
@@ -82,6 +82,7 @@ const getButtonId = function(){
   }
   return buttonNumber;
 };
+
 const checkGameState = function() {
   let thisTurn;
   if(player_x) {
@@ -97,8 +98,12 @@ const checkGameState = function() {
     //TODO end game somehow and also be able to start it over
   }
 };
+
+
 module.exports = {
   checkGameState,
+  checkForWins,
+  getButtonNumber,
   getButtonId,
   togglePlayer,
   winArray,
