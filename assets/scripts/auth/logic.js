@@ -108,12 +108,15 @@ const checkGameState = function() {
   let thisTurn;
   let gameJSON = {};
   let theButtonNumber = getButtonNumber(idOfButton);
+  //let buttonEraser = "button-" + idOfButton;
+  //console.log("Button eraser is labeled " + buttonEraser);
   if(player_x) {
       thisTurn = "X";
   } else {
     thisTurn = "O";
   }
-  document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway so resets can happen
+  $(idOfButton).text(thisTurn);
+  //document.querySelector(idOfButton).innerHTML = thisTurn; //TODO: do this in a notdumbway so resets can happen
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     if(!(winArray.includes(null))) {
