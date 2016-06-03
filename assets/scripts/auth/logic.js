@@ -3,7 +3,7 @@ let winArray = [null, null, null, null, null, null, null, null, null];
 let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
-//let gameJSON = {};
+let gameOver = false;
 
 const endTheGame = function() {
   $('#myModal').modal({
@@ -24,6 +24,7 @@ const aWinHappened = function(piece1, piece2, piece3) {
     }
       console.log("Player " + piece1 + " wins!");
       endTheGame();
+      gameOver = true;
     return true;
   };
 
@@ -39,14 +40,14 @@ const aWinHappened = function(piece1, piece2, piece3) {
     aWinHappened(6, 7, 8);
   };
 
-const makeGameData = function(theButtonNumber, thisTurn, winArray) {
+const makeGameData = function(theButtonNumber, thisTurn) {
    let JSONified = {
              "game": {
                "cell": {
                    "index": theButtonNumber,
                    "value": thisTurn,
            },
-           "over": checkForWins(winArray),
+           "over": gameOver,
          }
        };
        return JSONified;

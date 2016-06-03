@@ -72,16 +72,6 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
   });
 };
 
-//fake JSON to test updateGame with
-// let gameJSON = {
-//            "game": {
-//              "cell": {
-//                  "index": 1,
-//                  "value": "X",
-//          },
-//          "over": false,
-//        }
-//      };
 
 const updateGame = function (data) {
   return $.ajax({
