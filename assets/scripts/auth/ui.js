@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
+//const api = require('./api.js')
 
 const success = (data) => {
   console.log(data);
@@ -8,6 +9,13 @@ const success = (data) => {
 
 const failure = (error) => {
   console.error(error);
+};
+
+const signUpSuccess = (data) => {
+  //app.user = data.user;
+  //api.signIn(data);
+  $('#myModal').modal('hide');
+  console.log(data);
 };
 
 const signInSuccess = (data) => {
@@ -37,4 +45,5 @@ module.exports = {
   signOutSuccess,
   newGameSuccess,
   updateGameSuccess,
+  signUpSuccess
 };
