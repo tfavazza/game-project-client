@@ -80,7 +80,7 @@ const updateGame = function (data) {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data, //FIXME
+    data: data, 
   });
 };
 

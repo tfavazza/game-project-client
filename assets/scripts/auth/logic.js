@@ -28,8 +28,8 @@ const aWinHappened = function(piece1, piece2, piece3) {
     return true;
   };
 
-  const checkForWins = function(arr) {
-    console.log(arr);
+  const checkForWins = function() {
+    //console.log(arr);
     aWinHappened(0, 1, 2);
     aWinHappened(0, 3, 6);
     aWinHappened(0, 4, 8);
@@ -119,7 +119,7 @@ const checkGameState = function() {
     //TODO end game somehow and also be able to start it over
   }
    gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
-   console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON));
+   console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON)); //TODO: remove
    return gameJSON;
 };
 
