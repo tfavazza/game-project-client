@@ -5,7 +5,12 @@ let idOfButton = "#";
 let buttonNumber = '';
 let gameOver = false;
 
+const toggleGameBoard = function () {
+  $("#game-board").toggle("slow");
+};
+
 const endTheGame = function() {
+  toggleGameBoard();
   $('#myModal').modal({
         'data-toggle': 'modal',
     });
@@ -119,11 +124,9 @@ const checkGameState = function() {
     //TODO end game somehow and also be able to start it over
   }
    gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
-   console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON)); //TODO: remove
+   //console.log("here is JSON as a string maybe?" + JSON.stringify(gameJSON)); //TODO: remove
    return gameJSON;
 };
-
-
 
 
 module.exports = {
@@ -133,4 +136,5 @@ module.exports = {
   getButtonId,
   togglePlayer,
   winArray,
+  toggleGameBoard,
 };

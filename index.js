@@ -17,3 +17,7 @@ require('expose?jQuery!jquery');
 // attach getFormFields globally
 
 require('expose?getFormFields!./lib/get-form-fields.js');
+
+$(() => {
+  $('#game-board').hide();
+});
