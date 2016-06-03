@@ -36,19 +36,33 @@ const onChangePass = function (event) {
   .fail(ui.failure);
 };
 const onCreateGame = function () {
-  console.log("game created!!"); //TODO remove this
   event.preventDefault();
   api.createGame()
-  .done(ui.success)
+  .done(ui.newGameSuccess)
   .fail(ui.failure);
 };
 
-let fakeData = '{ "game": { "cell": { "index": 0, "value": "x" } } }';
+// const makeGameData = function (index, value, over) {
+// let gameData = {
+//   game: {
+//     cell: {
+//       index: index,
+//       value: value
+//     },
+//     over: over
+//   }
+// };
+//   console.log(gameData);
+//   return gameData;
+// };
+
+//let fakeData = JSON.stringify(makeGameData("1","X", false));
+
 
 const onUpdateGame = function (event) {
   console.log("game is trying to update!");
   event.preventDefault();
-  let data = fakeData;
+  let data = data; //FIXME data should be getFormFields(infoNeeded)
   api.updateGame(data)
   .done(ui.newGameSuccess)
   .fail(ui.failure);

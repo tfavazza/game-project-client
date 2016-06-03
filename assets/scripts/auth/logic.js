@@ -1,5 +1,5 @@
 'use strict';
-let winArray = [null, null, null, null, null, null, null, null, null];
+let winArray = [null, "X", null, null, null, null, null, null, null];
 let player_x = false;
 let idOfButton = "#";
 let buttonNumber = '';
@@ -101,4 +101,5 @@ module.exports = {
   checkGameState,
   getButtonId,
   togglePlayer,
+  winArray,
 };
