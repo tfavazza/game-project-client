@@ -8,7 +8,7 @@
     </head>
     <body class="container-fluid">
       <div class="container">
-  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Sign In/Register</button>
+  <br><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Sign In/Register</button><br><br>
 
 <!--Start of modal login form-->
   <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -101,14 +101,12 @@
  <!-- Start of old version of signup/in -->
       <form id="sign-out">
         <fieldset>
-          <legend>Sign out!</legend>
           <div id="show-user"></div>
-          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button>
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button><br>
         </fieldset>
       </form>
       <form id="change-password">
         <fieldset>
-          <legend>Change Password!</legend>
             <input type="password" name="passwords[old]" placeholder="old password"><br>
             <input type="password" name="passwords[new]" placeholder="new password">
             <button class="btn btn-primary btn-lg">Change Password</button>
@@ -119,7 +117,7 @@
 
 <!-- game board begins -->
 
-      <div id="start-game"><button>Start New Game!</button></div>
+      <div id="start-game"><button class="btn btn-success">Start New Game!</button></div>
 
       <div id="hide-modal-button"></div>
     <div class="container" id="game-board">
