@@ -31,7 +31,7 @@
             <div class="control-group">
               <label class="control-label" for="userid">Email:</label>
               <div class="controls">
-                <input id="userid" name="credentials[email]" type="text" class="form-control" placeholder="Email@email.com" class="input-medium" required="">
+                <input id="userid" name="credentials[email]" type="text" class="form-control input-medium" placeholder="Email@email.com" required="">
               </div>
             </div>
 
@@ -39,15 +39,14 @@
             <div class="control-group">
               <label class="control-label" for="passwordinput">Password:</label>
               <div class="controls">
-                <input required="" id="passwordinput" name="credentials[password]" class="form-control" type="password" placeholder="********" class="input-medium">
+                <input required="" id="passwordinput" name="credentials[password]" class="form-control input-medium" type="password" placeholder="********">
               </div>
             </div>
-
 
             <!-- Button -->
             <div class="control-group">
               <div class="controls">
-                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                <button name="signin" class="btn btn-success">Sign In</button>
               </div>
             </div>
             </fieldset>
@@ -83,7 +82,6 @@
 
             <!-- Button -->
             <div class="control-group">
-              <label class="control-label" for="confirmsignup"></label>
               <div class="controls">
                 <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
               </div>
@@ -94,9 +92,7 @@
     </div>
       </div>
       <div class="modal-footer">
-      <center>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </center>
       </div>
     </div>
   </div>
@@ -107,7 +103,7 @@
         <fieldset>
           <legend>Sign out!</legend>
           <div id="show-user"></div>
-          <button button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button>
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button>
         </fieldset>
       </form>
       <form id="change-password">
@@ -120,7 +116,9 @@
       </form>
 
       <h1>Tic-Tac-Toe | By: Tara!</h1>
-<!---Game board--->
+
+<!-- game board begins -->
+
       <div id="start-game"><button>Start New Game!</button></div>
 
       <div id="hide-modal-button"></div>
