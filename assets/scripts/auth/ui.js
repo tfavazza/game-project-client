@@ -30,7 +30,7 @@ const signOutSuccess = function () {
 
 const newGameSuccess = (data) => {
   app.game = data.game;
-  //console.log(app);
+  console.log(app);
 };
 
 const updateGameSuccess = (data) => {

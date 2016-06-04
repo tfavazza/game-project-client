@@ -16,7 +16,7 @@ const endTheGame = function() {
     });
    winArray = [null, null, null, null, null, null, null, null, null];
    $('.fixit').show();
-   $('.gamepiece').hide().text("");
+   $('.gamepiece').text("").hide();
 
 };
 
@@ -120,8 +120,8 @@ const checkGameState = function() {
   }
   //this bit switches the game board AND updates the array
   if(!(winArray[theButtonNumber])){
-    $(idOfButton+"move").text(thisTurn);
     $(idOfButton).hide();
+    $(idOfButton+"move").text(thisTurn);
     $(idOfButton+"move").show();
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
