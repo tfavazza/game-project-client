@@ -14,6 +14,10 @@ const endTheGame = function() {
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
+   winArray = [null, null, null, null, null, null, null, null, null];
+   $('.fixit').show();
+   $('.gamepiece').hide().text("");
+
 };
 
 const aWinHappened = function(piece1, piece2, piece3) {
@@ -116,7 +120,9 @@ const checkGameState = function() {
   }
   //this bit switches the game board AND updates the array
   if(!(winArray[theButtonNumber])){
-    $(idOfButton).text(thisTurn);
+    $(idOfButton+"move").text(thisTurn);
+    $(idOfButton).hide();
+    $(idOfButton+"move").show();
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);

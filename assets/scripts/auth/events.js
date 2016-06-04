@@ -34,7 +34,7 @@ const onChangePass = function (event) {
   let data = getFormFields(event.target);
   api.changePass(data)
   .done(ui.success)
-  .fail(ui.failure);
+  .fail(ui.changePassFailure);
 };
 const onCreateGame = function () {
   event.preventDefault();

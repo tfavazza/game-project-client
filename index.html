@@ -19,6 +19,7 @@
             <ul id="myTab" class="nav nav-tabs">
               <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
               <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#changepassword" data-toggle="tab">Password</a></li>
             </ul>
         </div>
       <div class="modal-body">
@@ -89,6 +90,32 @@
             </fieldset>
             </form>
       </div>
+
+      <!-- Change password -->
+      <div class="tab-pane fade" id="changepassword">
+        <form id="change-password">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="oldpassword">Enter Old Password:</label>
+                <div class="controls">
+                  <input class="form-control input-large" type="password" name="passwords[old]" placeholder="old password">
+                </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="newpassowrd">Enter New Password:</label>
+                <div class="controls">
+                  <input class="form-control input-large" type="password" name="passwords[new]" placeholder="new password">
+                </div>
+              </div>
+            <div class="control-group">
+              <div class="controls">
+              <button class="btn btn-success">Change Password</button>
+              <div id="password-change-failure"></div>
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
       </div>
       <div class="modal-footer">
@@ -105,14 +132,6 @@
           <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button><br>
         </fieldset>
       </form>
-      <form id="change-password">
-        <fieldset>
-            <input type="password" name="passwords[old]" placeholder="old password"><br>
-            <input type="password" name="passwords[new]" placeholder="new password">
-            <button class="btn btn-primary btn-lg">Change Password</button>
-        </fieldset>
-      </form>
-
       <h1>Tic-Tac-Toe | By: Tara!</h1>
 
 <!-- game board begins -->
@@ -122,25 +141,31 @@
       <div id="hide-modal-button"></div>
     <div class="container" id="game-board">
       <div class="row article">
-        <div id="zero" class="col-xs-4 right bottom"><button id="#zero">0</button></div>
+        <div id="zero" class="col-xs-4 right bottom"><button id="button-#zero" class="fixit">0</button></div>
         <div class="gamepiece col-xs-4 right bottom" id="zeromove" hidden></div>
-        <div id="one" class="col-xs-4 bottom"><button id="button-#one">1</button></div>
-        <div id="two" class="col-xs-4 left bottom"><button id="button-#two">2</button></div>
+        <div id="one" class="col-xs-4 bottom"><button id="button-#one" class="fixit">1</button></div>
+        <div class="gamepiece col-xs-4 bottom" id="onemove" hidden></div>
+        <div id="two" class="col-xs-4 left bottom"><button id="button-#two" class="fixit">2</button></div>
+        <div class="gamepiece col-xs-4 left bottom" id="twomove" hidden></div>
       </div>
       <div class="row article">
-        <div id="three" class="col-xs-4 right bottom"><button id="button-#three">3</button></div>
-        <div id="four" class="col-xs-4 bottom"><button id="button-#four">4</button></div>
-        <div id="five" class="col-xs-4 left bottom"><button id="button-#five">5</button></div>
+        <div id="three" class="col-xs-4 right bottom"><button id="button-#three" class="fixit">3</button></div>
+        <div class="gamepiece col-xs-4 right bottom" id="threemove" hidden></div>
+        <div id="four" class="col-xs-4 bottom"><button id="button-#four" class="fixit">4</button></div>
+        <div class="gamepiece col-xs-4 bottom" id="fourmove" hidden></div>
+        <div id="five" class="col-xs-4 left bottom"><button id="button-#five" class="fixit">5</button></div>
+        <div class="gamepiece col-xs-4 left bottom" id="fivemove" hidden></div>
       </div>
       <div class="row article">
-        <div id="six" class="col-xs-4 right"><button id="button-#six">6</button></div>
-        <div id="seven" class="col-xs-4"><button id="button-#seven">7</button></div>
-        <div id="eight" class="col-xs-4 left"><button id="button-#eight">8</button></div>
-      </div>
-      <div>
-        <button class="btn btn-success">Game Stats</button>
+        <div id="six" class="col-xs-4 right"><button id="button-#six" class="fixit">6</button></div>
+        <div class="gamepiece col-xs-4 right" id="sixmove" hidden></div>
+        <div id="seven" class="col-xs-4"><button id="button-#seven" class="fixit">7</button></div>
+        <div class="gamepiece col-xs-4" id="sevenmove" hidden></div>
+        <div id="eight" class="col-xs-4 left"><button id="button-#eight" class="fixit">8</button></div>
+        <div class="gamepiece col-xs-4 left" id="eightmove" hidden></div>
       </div>
     </div>
+  <button class="btn btn-success">Your Game Stats</button>
 <!-- Modal -->
   <div class="modal fade" id="gameOverModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
