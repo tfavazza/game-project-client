@@ -55,6 +55,13 @@ const onUpdateGame = function (event) {
   .fail(ui.failure);
 };
 
+const onGetGamesPlayed = function (event) {
+  console.log("Trying to get all the games");
+  event.preventDefault();
+  api.getAllGamesPlayed().
+  done(ui.getAllGamesSuccess)
+  .fail(ui.failure);
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -67,6 +74,7 @@ const addHandlers = () => {
   $('#game-board').on('click', onUpdateGame);
   $('#start-game').on('click', logic.toggleGameBoard);
   $('#start-new-game').on('click', logic.toggleGameBoard);
+  $('#game-stats').on('click', onGetGamesPlayed);
 };
 
 module.exports = {

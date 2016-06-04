@@ -42,6 +42,12 @@ const changePassFailure = () =>{
   $("#password-change-failure").text("Your old password was entered incorrectly.");
 };
 
+const getAllGamesSuccess = (data) => {
+  app.games = data.games;
+  console.log(app);
+  $('#game-stats-div').text("You have played " + app.games.length + " games!");
+};
+
 module.exports = {
   failure,
   success,
@@ -51,4 +57,5 @@ module.exports = {
   updateGameSuccess,
   signUpSuccess,
   changePassFailure,
+  getAllGamesSuccess,
 };
