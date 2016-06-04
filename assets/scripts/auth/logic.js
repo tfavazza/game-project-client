@@ -4,20 +4,39 @@ let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
 let gameOver = false;
+let playerXWon = "empty";
+let thisTurn;
+
+const resetBoard = function() {
+  winArray = [null, null, null, null, null, null, null, null, null];
+  playerXWon = "empty";
+  player_x = true;
+  thisTurn = null;
+  togglePlayer();
+};
 
 const toggleGameBoard = function () {
   $("#game-board").toggle("slow");
+  $('.fixit').show();
+  $('.gamepiece').text("").hide();
 };
 
 const endTheGame = function() {
-  toggleGameBoard();
+  //toggleGameBoard();
+if(thisTurn === "O") {
+  $('#win-lose-or-tie').text("I'm sorry, you didn't win");
+}
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
-   winArray = [null, null, null, null, null, null, null, null, null];
-   $('.fixit').show();
-   $('.gamepiece').text("").hide();
+    resetBoard();
+  //  $('.fixit').show();
+  //  $('.gamepiece').text("").hide();
 
+};
+
+const playAgain = function () {
+  toggleGameBoard();
 };
 
 const aWinHappened = function(piece1, piece2, piece3) {
@@ -109,7 +128,7 @@ const getButtonId = function(){
 };
 
 const checkGameState = function() {
-  let thisTurn;
+  thisTurn = null;
   let gameJSON = {};
   let theButtonNumber = getButtonNumber(idOfButton);
   //console.log("Button eraser is labeled " + buttonEraser);
@@ -131,6 +150,7 @@ const checkGameState = function() {
 
 //this bit checks for a tie
     if(!(winArray.includes(null))) {
+          $('#win-lose-or-tie').text("It's a tie!");
     endTheGame();
     //TODO end game somehow and also be able to start it over
   }
@@ -146,4 +166,5 @@ module.exports = {
   togglePlayer,
   winArray,
   toggleGameBoard,
+  playAgain,
 };
