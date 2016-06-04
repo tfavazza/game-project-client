@@ -120,6 +120,7 @@ const checkGameState = function() {
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
+    togglePlayer();
 }
 
 //this bit checks for a tie
