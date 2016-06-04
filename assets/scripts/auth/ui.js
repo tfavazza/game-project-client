@@ -13,7 +13,7 @@ const failure = () => {
 
 const signUpSuccess = (data) => {
   //app.user = data.user;
-  api.signIn(data.user);
+  api.signIn(data.user); //TODO make this work
   $('#myModal').modal('hide');
   //console.log(data);
 };
@@ -21,10 +21,12 @@ const signUpSuccess = (data) => {
 const signInSuccess = (data) => {
   app.user = data.user;
   $('#myModal').modal('hide');
+  $("#sign-in-button-text").text("Change Password");
   //console.log(app);
 };
 const signOutSuccess = function () {
   app.user = null;
+  $("#sign-in-button-text").text("Sign In/Register");
   //console.log(app);
 };
 
