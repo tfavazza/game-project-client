@@ -12,13 +12,13 @@ body {
 }
 
 .col-xs-4 {
-  height: 33.3333vw;
+  height: 20vw;
   padding-top: 5vw;
   text-align: center;
 
   button {
-    height: 25vw;
-    width: 25vw;
+    height: 10vw;
+    width: 10vw;
   }
 }
 
@@ -41,4 +41,10 @@ body {
 .gamepiece {
   font-size: 70px;
   text-align: center;
+}
+
+@media (max-width: 550px) {
+  .gamepiece {
+    font-size: 40px;
+  }
 }
