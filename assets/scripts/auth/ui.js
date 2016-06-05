@@ -29,6 +29,7 @@ const signOutSuccess = function () {
   app.user = null;
   $("#sign-in-button-text").text("Sign In/Register");
   $("#sign-out").hide();
+  $('#game-board').hide();
   //console.log(app);
 };
 
