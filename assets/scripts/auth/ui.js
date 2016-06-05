@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
-const api = require('./api.js')
+const api = require('./api.js');
 
 const success = () => {
   //console.log(data);

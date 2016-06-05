@@ -153,11 +153,12 @@ const checkGameState = function() {
 }
 
 //this bit checks for a tie
-    if(!(winArray.includes(null))) {
-          $('#win-lose-or-tie').text("It's a tie!");
-    endTheGame();
-    //TODO end game somehow and also be able to start it over
-  }
+     if(!(winArray.includes(null))) {
+          $('#win-lose-or-tie').text("It's a tie wow!");
+          endTheGame();
+          gameOver = true;
+          player_x = !player_x;
+    }
    return gameJSON;
 };
 
