@@ -49,7 +49,7 @@ const aWinHappened = function (piece1, piece2, piece3) {
       return false;
     }
 
-    $('#win-lose-or-tie').text("Player " + arr[piece1] + " wins!");
+    $('#win-lose-or-tie').text('Player ' + arr[piece1] + ' wins!');
     endTheGame();
     gameOver = true;
     return true;
@@ -86,70 +86,74 @@ const getButtonId = function () {
   idOfButton += this.getAttribute('id');
   return idOfButton;
 };
-  const getButtonNumber = function (idOfButton) {
+
+const getButtonNumber = function (idOfButton) {
   switch (idOfButton) { //switch statement to change text to numbers
     case '#zero':
-      buttonNumber = "0";
+      buttonNumber = '0';
       break;
     case '#one':
-      buttonNumber = "1";
+      buttonNumber = '1';
       break;
     case '#two':
-      buttonNumber = "2";
+      buttonNumber = '2';
       break;
     case '#three':
-      buttonNumber = "3";
+      buttonNumber = '3';
       break;
     case '#four':
-      buttonNumber = "4";
+      buttonNumber = '4';
       break;
     case '#five':
-      buttonNumber = "5";
+      buttonNumber = '5';
       break;
     case '#six':
-      buttonNumber = "6";
+      buttonNumber = '6';
       break;
     case '#seven':
-      buttonNumber = "7";
+      buttonNumber = '7';
       break;
     case '#eight':
-      buttonNumber = "8";
+      buttonNumber = '8';
       break;
   }
   return buttonNumber;
 };
 
-const checkGameState = function() {
+const checkGameState = function () {
   thisTurn = null;
   let gameJSON = {};
   let theButtonNumber = getButtonNumber(idOfButton);
-  //console.log("Button eraser is labeled " + buttonEraser);
-  if(player_x) {
-      thisTurn = "X";
-  } if(!player_x) {
-    thisTurn = "O";
+
+  if (player_x) {
+    thisTurn = 'X';
   }
+
+  if (!player_x) {
+    thisTurn = 'O';
+  }
+
   //this bit switches the game board AND updates the array
-  if(!(winArray[theButtonNumber])){
+
+  if (!(winArray[theButtonNumber])) {
     $(idOfButton).hide();
-    $(idOfButton + "move").text(thisTurn);
-    $(idOfButton + "move").show();
+    $(idOfButton + 'move').text(thisTurn);
+    $(idOfButton + 'move').show();
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
     togglePlayer();
-}
+  }
 
-//this bit checks for a tie
-     if(!(winArray.includes(null))) {
-          $('#win-lose-or-tie').text("It's a tie wow!");
-          endTheGame();
-          gameOver = true;
-          player_x = !player_x;
-    }
-   return gameJSON;
+  if (!(winArray.includes(null))) {
+    $('#win-lose-or-tie').text('It\'s a tie!');
+    endTheGame();
+    gameOver = true;
+    player_x = !player_x;
+  }
+
+  return gameJSON;
 };
-
 
 module.exports = {
   checkGameState,

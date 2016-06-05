@@ -4,58 +4,51 @@ const app = require('../app.js');
 const api = require('./api.js');
 
 const success = () => {
-  //console.log(data);
 };
 
 const failure = () => {
-  //console.error(error);
 };
 
 const signUpSuccess = (data) => {
-  //app.user = data.user;
   api.signIn(data.user); //TODO make this work
   $('#myModal').modal('hide');
-  //console.log(data);
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
   $('#myModal').modal('hide');
-  $("#sign-in-button-text").text("Change Password");
-  $("#sign-out").show();
-  //console.log(app);
+  $('#sign-in-button-text').text('Change Password');
+  $('#sign-out').show();
 };
+
 const signOutSuccess = function () {
   app.user = null;
-  $("#sign-in-button-text").text("Sign In/Register");
-  $("#sign-out").hide();
+  $('#sign-in-button-text').text('Sign In/Register');
+  $('#sign-out').hide();
   $('#game-board').hide();
-  //console.log(app);
 };
 
 const newGameSuccess = (data) => {
-  $('#start-game-fail').text("");
+  $('#start-game-fail').text('');
   app.game = data.game;
   console.log(app);
 };
 
 const updateGameSuccess = (data) => {
   app.game = data.game;
-  //console.log(app);
 };
 
-const changePassFailure = () =>{
-  $("#password-change-failure").text("Your old password was entered incorrectly.");
+const changePassFailure = () => {
+  $('#password-change-failure').text('Your old password was entered incorrectly.');
 };
 
 const getAllGamesSuccess = (data) => {
   app.games = data.games;
-  //console.log(app);
-  $('#game-stats-div').text("You have played " + app.games.length + " games!");
+  $('#game-stats-div').text('You have played ' + app.games.length + ' games!');
 };
 
 const newGameFailure = () => {
-  $('#start-game-fail').text("I'm sorry, something has gone wrong.");
+  $('#start-game-fail').text('I\'m sorry, something has gone wrong.');
 };
 
 module.exports = {
