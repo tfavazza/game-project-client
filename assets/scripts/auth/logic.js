@@ -28,6 +28,12 @@ const endTheGame = function() {
 if(thisTurn === "O") {
   $('#win-lose-or-tie').text("I'm sorry, you didn't win");
 }
+if(thisTurn === "X") {
+  $('#win-lose-or-tie').text("You win!");
+}
+if(!(winArray.includes(null))) {
+      $('#win-lose-or-tie').text("It's a tie!");
+    }
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
