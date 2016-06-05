@@ -71,25 +71,25 @@ webpackJsonp([0],[
 	  event.preventDefault();
 	  api.signOut().done(ui.signOutSuccess).fail(ui.failure);
 	};
+
 	var onChangePass = function onChangePass(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
 	  api.changePass(data).done(ui.success).fail(ui.changePassFailure);
 	};
+
 	var onCreateGame = function onCreateGame() {
 	  event.preventDefault();
 	  api.createGame().done(ui.newGameSuccess).fail(ui.newGameFailure);
 	};
 
 	var onUpdateGame = function onUpdateGame(event) {
-	  console.log("game is trying to update!");
 	  event.preventDefault();
 	  var data = logic.checkGameState();
 	  api.updateGame(data).done(ui.updateGameSuccess).fail(ui.failure);
 	};
 
 	var onGetGamesPlayed = function onGetGamesPlayed(event) {
-	  console.log("Trying to get all the games");
 	  event.preventDefault();
 	  api.getAllGamesPlayed().done(ui.getAllGamesSuccess).fail(ui.failure);
 	};
@@ -236,7 +236,8 @@ webpackJsonp([0],[
 	var createGame = function createGame() {
 	  if (app.user === undefined) {
 	    $('#start-game-fail').text("I'm sorry, you have to sign in first");
-	  } //createGame POST	/games	games#create
+	  }
+
 	  return $.ajax({
 	    url: app.host + '/games/',
 	    method: 'POST',
@@ -278,13 +279,6 @@ webpackJsonp([0],[
 	  });
 	};
 
-	// const watchGameById = function(id) { //watchGameById GET	/games/:id/watch	games#watch
-	//   return $.ajax({
-	//     url: app.host + 'games/:' + id + '/watch',
-	//     method: 'GET',
-	//   });
-	// };
-
 	module.exports = {
 	  signUp: signUp,
 	  signIn: signIn,
@@ -306,7 +300,6 @@ webpackJsonp([0],[
 
 	module.exports = {
 	  host: 'http://tic-tac-toe.wdibos.com'
-
 	};
 
 /***/ },
@@ -318,59 +311,49 @@ webpackJsonp([0],[
 	var app = __webpack_require__(6);
 	var api = __webpack_require__(5);
 
-	var success = function success() {
-	  //console.log(data);
-	};
+	var success = function success() {};
 
-	var failure = function failure() {
-	  //console.error(error);
-	};
+	var failure = function failure() {};
 
 	var signUpSuccess = function signUpSuccess(data) {
-	  //app.user = data.user;
 	  api.signIn(data.user); //TODO make this work
 	  $('#myModal').modal('hide');
-	  //console.log(data);
 	};
 
 	var signInSuccess = function signInSuccess(data) {
 	  app.user = data.user;
 	  $('#myModal').modal('hide');
-	  $("#sign-in-button-text").text("Change Password");
-	  $("#sign-out").show();
-	  //console.log(app);
+	  $('#sign-in-button-text').text('Change Password');
+	  $('#sign-out').show();
 	};
+
 	var signOutSuccess = function signOutSuccess() {
 	  app.user = null;
-	  $("#sign-in-button-text").text("Sign In/Register");
-	  $("#sign-out").hide();
+	  $('#sign-in-button-text').text('Sign In/Register');
+	  $('#sign-out').hide();
 	  $('#game-board').hide();
-	  //console.log(app);
 	};
 
 	var newGameSuccess = function newGameSuccess(data) {
-	  $('#start-game-fail').text("");
+	  $('#start-game-fail').text('');
 	  app.game = data.game;
-	  console.log(app);
 	};
 
 	var updateGameSuccess = function updateGameSuccess(data) {
 	  app.game = data.game;
-	  //console.log(app);
 	};
 
 	var changePassFailure = function changePassFailure() {
-	  $("#password-change-failure").text("Your old password was entered incorrectly.");
+	  $('#password-change-failure').text('Your old password was entered incorrectly.');
 	};
 
 	var getAllGamesSuccess = function getAllGamesSuccess(data) {
 	  app.games = data.games;
-	  //console.log(app);
-	  $('#game-stats-div').text("You have played " + app.games.length + " games!");
+	  $('#game-stats-div').text('You have played ' + app.games.length + ' games!');
 	};
 
 	var newGameFailure = function newGameFailure() {
-	  $('#start-game-fail').text("I'm sorry, something has gone wrong.");
+	  $('#start-game-fail').text('I\'m sorry, something has gone wrong.');
 	};
 
 	module.exports = {
@@ -395,7 +378,7 @@ webpackJsonp([0],[
 
 	var winArray = [null, null, null, null, null, null, null, null, null];
 	var player_x = true;
-	var idOfButton = "#";
+	var idOfButton = '#';
 	var buttonNumber = '';
 	var gameOver = false;
 	var thisTurn = void 0;
@@ -409,32 +392,20 @@ webpackJsonp([0],[
 	  player_x = false; //i'm not sure why this works, I must toggle it on start?
 	  thisTurn = null;
 	  gameOver = false;
-	  //togglePlayer();
 	};
 
 	var toggleGameBoard = function toggleGameBoard() {
-	  $("#game-board").toggle("slow");
+	  $('#game-board').toggle('slow');
 	  $('.fixit').show();
-	  $('.gamepiece').text("").hide();
+	  $('.gamepiece').text('').hide();
 	};
 
 	var endTheGame = function endTheGame() {
-	  // if(thisTurn === "O") {
-	  //   $('#win-lose-or-tie').text("I'm sorry, you didn't win");
-	  // }
-	  // if(thisTurn === "X") {
-	  //   $('#win-lose-or-tie').text("You win!");
-	  // }
-	  // if(!(winArray.includes(null))) {
-	  //       $('#win-lose-or-tie').text("It's a tie!");
-	  //     }
 	  $('#gameOverModel').modal({
 	    'data-toggle': 'modal'
 	  });
 	  toggleGameBoard();
 	  resetBoard();
-	  //  $('.fixit').show();
-	  //  $('.gamepiece').text("").hide();
 	};
 
 	var playAgain = function playAgain() {
@@ -446,20 +417,22 @@ webpackJsonp([0],[
 	  if (arr[piece1] === null) {
 	    return false;
 	  }
+
 	  if (arr[piece1] !== arr[piece2]) {
 	    return false;
 	  }
+
 	  if (arr[piece1] !== arr[piece3]) {
 	    return false;
 	  }
-	  $('#win-lose-or-tie').text("Player " + arr[piece1] + " wins!");
+
+	  $('#win-lose-or-tie').text('Player ' + arr[piece1] + ' wins!');
 	  endTheGame();
 	  gameOver = true;
 	  return true;
 	};
 
 	var checkForWins = function checkForWins() {
-	  //console.log(arr);
 	  aWinHappened(0, 1, 2);
 	  aWinHappened(0, 3, 6);
 	  aWinHappened(0, 4, 8);
@@ -472,12 +445,12 @@ webpackJsonp([0],[
 
 	var makeGameData = function makeGameData(theButtonNumber, thisTurn) {
 	  var JSONified = {
-	    "game": {
-	      "cell": {
-	        "index": theButtonNumber,
-	        "value": thisTurn
+	    'game': {
+	      'cell': {
+	        'index': theButtonNumber,
+	        'value': thisTurn
 	      },
-	      "over": gameOver
+	      'over': gameOver
 	    }
 	  };
 	  return JSONified;
@@ -486,38 +459,39 @@ webpackJsonp([0],[
 	//final test to end the game
 
 	var getButtonId = function getButtonId() {
-	  idOfButton = "#";
+	  idOfButton = '#';
 	  idOfButton += this.getAttribute('id');
 	  return idOfButton;
 	};
+
 	var getButtonNumber = function getButtonNumber(idOfButton) {
 	  switch (idOfButton) {//switch statement to change text to numbers
 	    case '#zero':
-	      buttonNumber = "0";
+	      buttonNumber = '0';
 	      break;
 	    case '#one':
-	      buttonNumber = "1";
+	      buttonNumber = '1';
 	      break;
 	    case '#two':
-	      buttonNumber = "2";
+	      buttonNumber = '2';
 	      break;
 	    case '#three':
-	      buttonNumber = "3";
+	      buttonNumber = '3';
 	      break;
 	    case '#four':
-	      buttonNumber = "4";
+	      buttonNumber = '4';
 	      break;
 	    case '#five':
-	      buttonNumber = "5";
+	      buttonNumber = '5';
 	      break;
 	    case '#six':
-	      buttonNumber = "6";
+	      buttonNumber = '6';
 	      break;
 	    case '#seven':
-	      buttonNumber = "7";
+	      buttonNumber = '7';
 	      break;
 	    case '#eight':
-	      buttonNumber = "8";
+	      buttonNumber = '8';
 	      break;
 	  }
 	  return buttonNumber;
@@ -527,30 +501,34 @@ webpackJsonp([0],[
 	  thisTurn = null;
 	  var gameJSON = {};
 	  var theButtonNumber = getButtonNumber(idOfButton);
-	  //console.log("Button eraser is labeled " + buttonEraser);
+
 	  if (player_x) {
-	    thisTurn = "X";
-	  }if (!player_x) {
-	    thisTurn = "O";
+	    thisTurn = 'X';
 	  }
+
+	  if (!player_x) {
+	    thisTurn = 'O';
+	  }
+
 	  //this bit switches the game board AND updates the array
+
 	  if (!winArray[theButtonNumber]) {
 	    $(idOfButton).hide();
-	    $(idOfButton + "move").text(thisTurn);
-	    $(idOfButton + "move").show();
+	    $(idOfButton + 'move').text(thisTurn);
+	    $(idOfButton + 'move').show();
 	    winArray[theButtonNumber] = thisTurn;
 	    checkForWins(winArray);
 	    gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
 	    togglePlayer();
 	  }
 
-	  //this bit checks for a tie
 	  if (!winArray.includes(null)) {
-	    $('#win-lose-or-tie').text("It's a tie wow!");
+	    $('#win-lose-or-tie').text('It\'s a tie!');
 	    endTheGame();
 	    gameOver = true;
 	    player_x = !player_x;
 	  }
+
 	  return gameJSON;
 	};
 
