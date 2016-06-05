@@ -4,15 +4,18 @@ let player_x = true;
 let idOfButton = "#";
 let buttonNumber = '';
 let gameOver = false;
-let playerXWon = "empty";
 let thisTurn;
+
+const togglePlayer = function() {
+  player_x = !player_x;
+};
 
 const resetBoard = function() {
   winArray = [null, null, null, null, null, null, null, null, null];
-  playerXWon = "empty";
-  player_x = true;
+  player_x = false; //i'm not sure why this works, I must toggle it on start?
   thisTurn = null;
-  togglePlayer();
+  gameOver = false;
+  //togglePlayer();
 };
 
 const toggleGameBoard = function () {
@@ -84,11 +87,6 @@ const makeGameData = function(theButtonNumber, thisTurn) {
 
   //final test to end the game
 
-
-const togglePlayer = function() {
-  player_x = !player_x;
-};
-
 const getButtonId = function(){
   idOfButton = "#";
   idOfButton += this.getAttribute('id');
@@ -134,7 +132,7 @@ const checkGameState = function() {
   //console.log("Button eraser is labeled " + buttonEraser);
   if(player_x) {
       thisTurn = "X";
-  } else {
+  } if(!player_x) {
     thisTurn = "O";
   }
   //this bit switches the game board AND updates the array
@@ -163,7 +161,6 @@ module.exports = {
   checkForWins,
   getButtonNumber,
   getButtonId,
-  togglePlayer,
   winArray,
   toggleGameBoard,
   playAgain,
