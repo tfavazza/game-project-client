@@ -25,15 +25,15 @@ const toggleGameBoard = function () {
 };
 
 const endTheGame = function() {
-if(thisTurn === "O") {
-  $('#win-lose-or-tie').text("I'm sorry, you didn't win");
-}
-if(thisTurn === "X") {
-  $('#win-lose-or-tie').text("You win!");
-}
-if(!(winArray.includes(null))) {
-      $('#win-lose-or-tie').text("It's a tie!");
-    }
+// if(thisTurn === "O") {
+//   $('#win-lose-or-tie').text("I'm sorry, you didn't win");
+// }
+// if(thisTurn === "X") {
+//   $('#win-lose-or-tie').text("You win!");
+// }
+// if(!(winArray.includes(null))) {
+//       $('#win-lose-or-tie').text("It's a tie!");
+//     }
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
@@ -59,7 +59,7 @@ const aWinHappened = function(piece1, piece2, piece3) {
     if (arr[piece1] !== arr[piece3]) {
       return false;
     }
-      console.log("Player " + piece1 + " wins!");
+      $('#win-lose-or-tie').text("Player " + arr[piece1] + " wins!");
       endTheGame();
       gameOver = true;
     return true;
