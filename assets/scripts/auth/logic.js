@@ -25,10 +25,10 @@ const toggleGameBoard = function () {
 
 const endTheGame = function () {
   $('#gameOverModel').modal({
-        'data-toggle': 'modal',
-    });
-    toggleGameBoard();
-    resetBoard();
+    'data-toggle': 'modal',
+  });
+  toggleGameBoard();
+  resetBoard();
 };
 
 const playAgain = function () {
@@ -40,20 +40,22 @@ const aWinHappened = function (piece1, piece2, piece3) {
     if (arr[piece1] === null) {
       return false;
     }
+
     if (arr[piece1] !== arr[piece2]) {
       return false;
     }
+
     if (arr[piece1] !== arr[piece3]) {
       return false;
     }
-      $('#win-lose-or-tie').text("Player " + arr[piece1] + " wins!");
-      endTheGame();
-      gameOver = true;
+
+    $('#win-lose-or-tie').text("Player " + arr[piece1] + " wins!");
+    endTheGame();
+    gameOver = true;
     return true;
   };
 
-  const checkForWins = function() {
-    //console.log(arr);
+  const checkForWins = function () {
     aWinHappened(0, 1, 2);
     aWinHappened(0, 3, 6);
     aWinHappened(0, 4, 8);
@@ -64,29 +66,28 @@ const aWinHappened = function (piece1, piece2, piece3) {
     aWinHappened(6, 7, 8);
   };
 
-const makeGameData = function(theButtonNumber, thisTurn) {
-   let JSONified = {
-             "game": {
-               "cell": {
-                   "index": theButtonNumber,
-                   "value": thisTurn,
+const makeGameData = function (theButtonNumber, thisTurn) {
+  let JSONified = {
+             'game': {
+               'cell': {
+                   'index': theButtonNumber,
+                   'value': thisTurn,
            },
-           "over": gameOver,
+           'over': gameOver,
          }
        };
        return JSONified;
 };
 
+//final test to end the game
 
-  //final test to end the game
-
-const getButtonId = function(){
-  idOfButton = "#";
+const getButtonId = function () {
+  idOfButton = '#';
   idOfButton += this.getAttribute('id');
   return idOfButton;
 };
   const getButtonNumber = function (idOfButton) {
-  switch(idOfButton) { //switch statement to change text to numbers
+  switch (idOfButton) { //switch statement to change text to numbers
     case '#zero':
       buttonNumber = "0";
       break;
