@@ -132,8 +132,8 @@ const checkGameState = function() {
   //this bit switches the game board AND updates the array
   if(!(winArray[theButtonNumber])){
     $(idOfButton).hide();
-    $(idOfButton+"move").text(thisTurn);
-    $(idOfButton+"move").show();
+    $(idOfButton + "move").text(thisTurn);
+    $(idOfButton + "move").show();
     winArray[theButtonNumber] = thisTurn;
     checkForWins(winArray);
     gameJSON = makeGameData(theButtonNumber, thisTurn, winArray);
