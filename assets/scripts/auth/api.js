@@ -52,7 +52,10 @@ const showGames = function() { //showGames GET	/games	games#index
   });
 };
 
-const createGame = function() { //createGame POST	/games	games#create
+const createGame = function() {
+  if(app.user === undefined) {
+    $('#start-game-fail').text("I'm sorry, you have to sign in first");
+  } //createGame POST	/games	games#create
   return $.ajax({
     url: app.host + '/games/',
     method: 'POST',

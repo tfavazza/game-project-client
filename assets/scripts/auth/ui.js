@@ -33,6 +33,7 @@ const signOutSuccess = function () {
 };
 
 const newGameSuccess = (data) => {
+  $('#start-game-fail').text("");
   app.game = data.game;
   console.log(app);
 };
@@ -48,8 +49,12 @@ const changePassFailure = () =>{
 
 const getAllGamesSuccess = (data) => {
   app.games = data.games;
-  console.log(app);
+  //console.log(app);
   $('#game-stats-div').text("You have played " + app.games.length + " games!");
+};
+
+const newGameFailure = () => {
+  $('#start-game-fail').text("I'm sorry, something has gone wrong.");
 };
 
 module.exports = {
@@ -62,4 +67,5 @@ module.exports = {
   signUpSuccess,
   changePassFailure,
   getAllGamesSuccess,
+  newGameFailure,
 };

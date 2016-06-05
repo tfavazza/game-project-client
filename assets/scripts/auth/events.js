@@ -40,7 +40,7 @@ const onCreateGame = function () {
   event.preventDefault();
   api.createGame()
   .done(ui.newGameSuccess)
-  .fail(ui.failure);
+  .fail(ui.newGameFailure);
 };
 
 
