@@ -6,7 +6,6 @@ const api = require('./api');
 const ui = require('./ui');
 const logic = require('./logic');
 
-
 const onSignUp = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -29,6 +28,7 @@ const onSignOut = function (event) {
   .done(ui.signOutSuccess)
   .fail(ui.failure);
 };
+
 const onChangePass = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -36,6 +36,7 @@ const onChangePass = function (event) {
   .done(ui.success)
   .fail(ui.changePassFailure);
 };
+
 const onCreateGame = function () {
   event.preventDefault();
   api.createGame()
@@ -43,11 +44,7 @@ const onCreateGame = function () {
   .fail(ui.newGameFailure);
 };
 
-
-
-
 const onUpdateGame = function (event) {
-  console.log("game is trying to update!");
   event.preventDefault();
   let data = logic.checkGameState();
   api.updateGame(data)
@@ -56,7 +53,6 @@ const onUpdateGame = function (event) {
 };
 
 const onGetGamesPlayed = function (event) {
-  console.log("Trying to get all the games");
   event.preventDefault();
   api.getAllGamesPlayed().
   done(ui.getAllGamesSuccess)

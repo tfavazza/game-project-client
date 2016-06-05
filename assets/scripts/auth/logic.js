@@ -1,54 +1,41 @@
 'use strict';
 let winArray = [null, null, null, null, null, null, null, null, null];
 let player_x = true;
-let idOfButton = "#";
+let idOfButton = '#';
 let buttonNumber = '';
 let gameOver = false;
 let thisTurn;
 
-const togglePlayer = function() {
+const togglePlayer = function () {
   player_x = !player_x;
 };
 
-const resetBoard = function() {
+const resetBoard = function () {
   winArray = [null, null, null, null, null, null, null, null, null];
   player_x = false; //i'm not sure why this works, I must toggle it on start?
   thisTurn = null;
   gameOver = false;
-  //togglePlayer();
 };
 
 const toggleGameBoard = function () {
-  $("#game-board").toggle("slow");
+  $('#game-board').toggle('slow');
   $('.fixit').show();
-  $('.gamepiece').text("").hide();
+  $('.gamepiece').text('').hide();
 };
 
-const endTheGame = function() {
-// if(thisTurn === "O") {
-//   $('#win-lose-or-tie').text("I'm sorry, you didn't win");
-// }
-// if(thisTurn === "X") {
-//   $('#win-lose-or-tie').text("You win!");
-// }
-// if(!(winArray.includes(null))) {
-//       $('#win-lose-or-tie').text("It's a tie!");
-//     }
+const endTheGame = function () {
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
     toggleGameBoard();
     resetBoard();
-  //  $('.fixit').show();
-  //  $('.gamepiece').text("").hide();
-
 };
 
 const playAgain = function () {
   toggleGameBoard();
 };
 
-const aWinHappened = function(piece1, piece2, piece3) {
+const aWinHappened = function (piece1, piece2, piece3) {
     let arr = winArray;
     if (arr[piece1] === null) {
       return false;

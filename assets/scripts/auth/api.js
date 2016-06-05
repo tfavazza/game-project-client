@@ -1,7 +1,6 @@
 'use strict';
 const app = require('../app.js');
 
-
 const signUp = function (data) {
   return $.ajax(
      {
@@ -42,7 +41,7 @@ const changePass = function (data) {
   });
 };
 
-const showGames = function() { //showGames GET	/games	games#index
+const showGames = function () { //showGames GET	/games	games#index
   return $.ajax({
     url: app.host + '/games',
     method: 'GET',
@@ -52,10 +51,11 @@ const showGames = function() { //showGames GET	/games	games#index
   });
 };
 
-const createGame = function() {
-  if(app.user === undefined) {
+const createGame = function () {
+  if (app.user === undefined) {
     $('#start-game-fail').text("I'm sorry, you have to sign in first");
-  } //createGame POST	/games	games#create
+  }
+
   return $.ajax({
     url: app.host + '/games/',
     method: 'POST',
@@ -65,7 +65,7 @@ const createGame = function() {
   });
 };
 
-const getGameById = function(id) { //getGameById GET	/games/:id	games#show
+const getGameById = function (id) { //getGameById GET	/games/:id	games#show
   return $.ajax({
     url: app.host + 'games/:' + id,
     method: 'GET',
@@ -74,7 +74,6 @@ const getGameById = function(id) { //getGameById GET	/games/:id	games#show
     },
   });
 };
-
 
 const updateGame = function (data) {
   return $.ajax({
@@ -97,15 +96,6 @@ const getAllGamesPlayed = function () {
   });
 };
 
-// const watchGameById = function(id) { //watchGameById GET	/games/:id/watch	games#watch
-//   return $.ajax({
-//     url: app.host + 'games/:' + id + '/watch',
-//     method: 'GET',
-//   });
-// };
-
-
-
 module.exports = {
   signUp,
   signIn,
@@ -116,5 +106,4 @@ module.exports = {
   getGameById,
   updateGame,
   getAllGamesPlayed,
-  //watchGameById,
 };
