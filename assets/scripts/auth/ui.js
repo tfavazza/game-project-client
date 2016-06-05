@@ -22,11 +22,13 @@ const signInSuccess = (data) => {
   app.user = data.user;
   $('#myModal').modal('hide');
   $("#sign-in-button-text").text("Change Password");
+  $("#sign-out").show();
   //console.log(app);
 };
 const signOutSuccess = function () {
   app.user = null;
   $("#sign-in-button-text").text("Sign In/Register");
+  $("#sign-out").hide();
   //console.log(app);
 };
 

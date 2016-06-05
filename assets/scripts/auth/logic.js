@@ -25,13 +25,13 @@ const toggleGameBoard = function () {
 };
 
 const endTheGame = function() {
-  //toggleGameBoard();
 if(thisTurn === "O") {
   $('#win-lose-or-tie').text("I'm sorry, you didn't win");
 }
   $('#gameOverModel').modal({
         'data-toggle': 'modal',
     });
+    toggleGameBoard();
     resetBoard();
   //  $('.fixit').show();
   //  $('.gamepiece').text("").hide();
