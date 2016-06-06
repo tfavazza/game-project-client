@@ -58,7 +58,7 @@ webpackJsonp([0],[
 	var onSignUp = function onSignUp(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.signUp(data).done(ui.signUpSuccess).fail(ui.failure);
+	  api.signUp(data).done(ui.signUpSuccess).fail(ui.signUpFailure);
 	};
 
 	var onSignIn = function onSignIn(event) {
@@ -309,15 +309,17 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(6);
-	var api = __webpack_require__(5);
 
 	var success = function success() {};
 
 	var failure = function failure() {};
 
-	var signUpSuccess = function signUpSuccess(data) {
-	  api.signIn(data.user); //TODO make this work
-	  $('#myModal').modal('hide');
+	var signUpSuccess = function signUpSuccess() {
+	  $('#sign-in-success').text('Sign up successful, please sign in.');
+	};
+
+	var signUpFailure = function signUpFailure() {
+	  $('sign-in-success').text('Something went wrong...');
 	};
 
 	var signInSuccess = function signInSuccess(data) {
@@ -366,7 +368,8 @@ webpackJsonp([0],[
 	  signUpSuccess: signUpSuccess,
 	  changePassFailure: changePassFailure,
 	  getAllGamesSuccess: getAllGamesSuccess,
-	  newGameFailure: newGameFailure
+	  newGameFailure: newGameFailure,
+	  signUpFailure: signUpFailure
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
