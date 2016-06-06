@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('../app.js');
-const api = require('./api.js');
 
 const success = () => {
 };
@@ -9,9 +8,12 @@ const success = () => {
 const failure = () => {
 };
 
-const signUpSuccess = (data) => {
-  api.signIn(data.user); //TODO make this work
-  $('#myModal').modal('hide');
+const signUpSuccess = () => {
+  $('#sign-in-success').text('Sign up successful, please sign in.');
+};
+
+const signUpFailure = () => {
+  $('sign-in-success').text('Something went wrong...');
 };
 
 const signInSuccess = (data) => {
@@ -61,4 +63,5 @@ module.exports = {
   changePassFailure,
   getAllGamesSuccess,
   newGameFailure,
+  signUpFailure,
 };
