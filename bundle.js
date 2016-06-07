@@ -401,6 +401,8 @@ webpackJsonp([0],[
 	  $('#game-board').toggle('slow');
 	  $('.fixit').show();
 	  $('.gamepiece').text('').hide();
+	  winArray = [null, null, null, null, null, null, null, null, null];
+	  player_x = true;
 	};
 
 	var endTheGame = function endTheGame() {
