@@ -21,6 +21,8 @@ const toggleGameBoard = function () {
   $('#game-board').toggle('slow');
   $('.fixit').show();
   $('.gamepiece').text('').hide();
+  winArray = [null, null, null, null, null, null, null, null, null];
+  player_x = true;
 };
 
 const endTheGame = function () {
