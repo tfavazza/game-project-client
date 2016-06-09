@@ -56,7 +56,7 @@ const onGetGamesPlayed = function (event) {
   event.preventDefault();
   api.getAllGamesPlayed().
   done(ui.getAllGamesSuccess)
-  .fail(ui.failure);
+  .fail(ui.getAllGamesFailure);
 };
 
 const addHandlers = () => {

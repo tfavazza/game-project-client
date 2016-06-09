@@ -9,17 +9,18 @@ const failure = () => {
 };
 
 const signUpSuccess = () => {
-  $('#sign-in-success').text('Sign up successful, please sign in.');
+  $('#sign-up-success').text('Sign up successful, please sign in.');
 };
 
 const signUpFailure = () => {
-  $('sign-in-success').text('Something went wrong...');
+  $('sign-up-success').text('Something went wrong...');
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
   $('#myModal').modal('hide');
   $('#sign-in-button-text').text('Change Password');
+  $('#show-user').text('Hi ' + app.user.email + '!')
   $('#sign-out').show();
 };
 
@@ -48,6 +49,10 @@ const getAllGamesSuccess = (data) => {
   $('#game-stats-div').text('You have played ' + app.games.length + ' games!');
 };
 
+const getAllGamesFailure = () => {
+  $('#game-stats-div').text('I\'m sorry, something has gone wrong.');
+};
+
 const newGameFailure = () => {
   $('#start-game-fail').text('I\'m sorry, something has gone wrong.');
 };
@@ -64,4 +69,5 @@ module.exports = {
   getAllGamesSuccess,
   newGameFailure,
   signUpFailure,
+  getAllGamesFailure,
 };

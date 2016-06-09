@@ -29,7 +29,7 @@ const endTheGame = function () {
   $('#gameOverModel').modal({
     'data-toggle': 'modal',
   });
-  toggleGameBoard();
+  //toggleGameBoard();
   resetBoard();
 };
 
@@ -123,6 +123,9 @@ const getButtonNumber = function (idOfButton) {
 };
 
 const checkGameState = function () {
+  if(gameOver === true) {
+    
+  }
   thisTurn = null;
   let gameJSON = {};
   let theButtonNumber = getButtonNumber(idOfButton);

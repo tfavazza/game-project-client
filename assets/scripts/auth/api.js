@@ -52,7 +52,7 @@ const showGames = function () { //showGames GET	/games	games#index
 };
 
 const createGame = function () {
-  if (app.user === undefined) {
+  if (app.user === undefined || app.user === null) {
     $('#start-game-fail').text("I'm sorry, you have to sign in first");
   }
 
@@ -87,6 +87,9 @@ const updateGame = function (data) {
 };
 
 const getAllGamesPlayed = function () {
+  if(app.user === undefined || app.user === null) {
+      $('#game-stats-div').text('You (still) have to sign in!');
+  }
   return $.ajax({
     url: app.host + '/games/',
     method: 'GET',

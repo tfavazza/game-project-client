@@ -43,7 +43,21 @@ body {
   text-align: center;
 }
 
-@media (max-width: 550px) {
+.btn {
+  align-items: center;
+}
+
+#sign-out {
+  text-align: right;
+}
+
+#show-user {
+  font-style: italic;
+
+}
+
+
+@media (max-width: 560px) {
   .gamepiece {
     font-size: 40px;
   }

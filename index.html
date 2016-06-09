@@ -11,6 +11,11 @@
   <br><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="sign-in-button-text">Sign In/Register</button><br><br>
 
 <!--Start of modal login form-->
+<form id="sign-out" hidden>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button><br>
+    <div id="show-user"></div>
+</form>
+
   <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -19,7 +24,7 @@
             <ul id="myTab" class="nav nav-tabs">
               <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
               <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
-              <li class=""><a href="#changepassword" data-toggle="tab">Password</a></li>
+              <li id= "passtab" class=""><a href="#changepassword" data-toggle="tab">Password</a></li>
             </ul>
         </div>
       <div class="modal-body">
@@ -80,7 +85,7 @@
                 <input id="reenterpassword" class="form-control input-large" name="credentials[password_confirmation]" type="password" placeholder="********" required="">
               </div>
             </div>
-            <div id="sign-in-success"></div>
+            <div id="sign-up-success">test</div>
 
             <!-- Button -->
             <div class="control-group">
@@ -127,18 +132,13 @@
 </div>
  </div>
  <!-- Start of old version of signup/in -->
-      <form id="sign-out" hidden>
-        <fieldset>
-          <div id="show-user" hidden>Hello user! </div>
-          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">Sign Out</button><br>
-        </fieldset>
-      </form>
+
       <h1>Tic-Tac-Toe | By: Tara!</h1>
 
 <!-- game board begins -->
 
       <div id="start-game"><button class="btn btn-success">Start New Game!</button></div>
-      <div id="start-game-fail"></div>
+      <div id="start-game-fail"></div><br>
 
       <div id="hide-modal-button"></div>
     <div class="container" id="game-board">
@@ -168,7 +168,7 @@
       </div>
     </div>
   <button class="btn btn-success" id="game-stats">Your Game Stats</button>
-  <div id="game-stats-div"></div><br><br>
+  <div id="game-stats-div"></div>
 <!-- Modal -->
   <div class="modal fade" id="gameOverModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
