@@ -70,7 +70,8 @@ const addHandlers = () => {
   $('#start-game').on('click', logic.toggleGameBoard);
   $('#start-new-game').on('click', logic.playAgain);
   $('#game-stats').on('click', onGetGamesPlayed);
-};
+  $('#end-game').on('click', logic.toggleGameBoard);
+ };
 
 module.exports = {
   addHandlers,

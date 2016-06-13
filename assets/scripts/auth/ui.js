@@ -32,6 +32,8 @@ const signOutSuccess = function () {
 
 const newGameSuccess = (data) => {
   $('#start-game-fail').text('');
+  $('#start-game').hide();
+  $('#end-game').show();
   app.game = data.game;
 };
 

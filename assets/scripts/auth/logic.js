@@ -6,6 +6,7 @@ let buttonNumber = '';
 let gameOver = false;
 let thisTurn;
 
+
 const togglePlayer = function () {
   player_x = !player_x;
 };
@@ -23,6 +24,9 @@ const toggleGameBoard = function () {
   $('.gamepiece').text('').hide();
   winArray = [null, null, null, null, null, null, null, null, null];
   player_x = true;
+  $('#start-game').show();
+  $('#end-game').hide();
+
 };
 
 const endTheGame = function () {
@@ -35,6 +39,9 @@ const endTheGame = function () {
 
 const playAgain = function () {
   toggleGameBoard();
+  $('#start-game').hide();
+  $('#end-game').show();
+
 };
 
 const aWinHappened = function (piece1, piece2, piece3) {
@@ -156,7 +163,6 @@ const checkGameState = function () {
 
   return gameJSON;
 };
-
 module.exports = {
   checkGameState,
   checkForWins,

@@ -105,6 +105,7 @@ webpackJsonp([0],[
 	  $('#start-game').on('click', logic.toggleGameBoard);
 	  $('#start-new-game').on('click', logic.playAgain);
 	  $('#game-stats').on('click', onGetGamesPlayed);
+	  $('#end-game').on('click', logic.toggleGameBoard);
 	};
 
 	module.exports = {
@@ -338,6 +339,8 @@ webpackJsonp([0],[
 
 	var newGameSuccess = function newGameSuccess(data) {
 	  $('#start-game-fail').text('');
+	  $('#start-game').hide();
+	  $('#end-game').show();
 	  app.game = data.game;
 	};
 
@@ -403,6 +406,8 @@ webpackJsonp([0],[
 	  $('.gamepiece').text('').hide();
 	  winArray = [null, null, null, null, null, null, null, null, null];
 	  player_x = true;
+	  $('#start-game').show();
+	  $('#end-game').hide();
 	};
 
 	var endTheGame = function endTheGame() {
@@ -415,6 +420,8 @@ webpackJsonp([0],[
 
 	var playAgain = function playAgain() {
 	  toggleGameBoard();
+	  $('#start-game').hide();
+	  $('#end-game').show();
 	};
 
 	var aWinHappened = function aWinHappened(piece1, piece2, piece3) {
@@ -536,7 +543,6 @@ webpackJsonp([0],[
 
 	  return gameJSON;
 	};
-
 	module.exports = {
 	  checkGameState: checkGameState,
 	  checkForWins: checkForWins,
