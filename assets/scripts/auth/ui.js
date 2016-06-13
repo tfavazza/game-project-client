@@ -28,6 +28,8 @@ const signOutSuccess = function () {
   $('#sign-in-button-text').text('Sign In/Register');
   $('#sign-out').hide();
   $('#game-board').hide();
+  $('#start-game').show();
+  $('#end-game').hide();
 };
 
 const newGameSuccess = (data) => {

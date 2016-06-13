@@ -335,6 +335,8 @@ webpackJsonp([0],[
 	  $('#sign-in-button-text').text('Sign In/Register');
 	  $('#sign-out').hide();
 	  $('#game-board').hide();
+	  $('#start-game').show();
+	  $('#end-game').hide();
 	};
 
 	var newGameSuccess = function newGameSuccess(data) {
