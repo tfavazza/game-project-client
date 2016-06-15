@@ -104,6 +104,7 @@ webpackJsonp([0],[
 	  $('#game-board').on('click', onUpdateGame);
 	  $('#start-game').on('click', logic.toggleGameBoard);
 	  $('#start-new-game').on('click', logic.playAgain);
+	  $('#start-new-game').on('click', onCreateGame);
 	  $('#game-stats').on('click', onGetGamesPlayed);
 	  $('#end-game').on('click', logic.toggleGameBoard);
 	};
